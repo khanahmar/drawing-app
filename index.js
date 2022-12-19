@@ -4,31 +4,44 @@ const mainSize = document.getElementById("size");
 const decrease = document.getElementById("decrease");
 const increase = document.getElementById("increase");
 const clear = document.getElementById("clear");
+const mainColor = document.getElementById("color");
 
 mainSize.innerHTML = 0;
-
 increase.addEventListener("click", (e) => {
   if (Number(mainSize.innerHTML) == 20) {
-    mainSize.innerHTML = Number(mainSize.innerHTML) + 0;
+    mainSize.innerHTML = 20;
+    size = mainSize.innerHTML;
   } else {
     mainSize.innerHTML = Number(mainSize.innerHTML) + 1;
+    size = mainSize.innerHTML;
   }
 });
 
 decrease.addEventListener("click", (e) => {
   if (Number(mainSize.innerHTML) == 0) {
-    mainSize.innerHTML = Number(mainSize.innerHTML) - 0;
+    mainSize.innerHTML = 0;
+    size = mainSize.innerHTML;
   } else {
     mainSize.innerHTML = Number(mainSize.innerHTML) - 1;
+    size = mainSize.innerHTML;
   }
 });
+
+mainColor.addEventListener(
+  "input",
+  function () {
+    let theColor = mainColor.value;
+    color = theColor;
+    // Do something with `theColor` here.
+  },
+  false
+);
 
 clear.addEventListener("click", (e) => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
-
-let size = Number(mainSize.innerHTML);
-let color = "black";
+let size;
+let color;
 
 let x;
 let y;
